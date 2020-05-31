@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/color_group" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_first_tile"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:text="FIRST"
+                android:textColor="@color/colorFirstTile"
+                android:background="@drawable/tile_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:checked="true"
+                android:onClick="onChangeTileClick"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:id="@+id/radio_second_tile"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:text="SECOND"
+                android:textColor="@color/colorSecondTile"
+                android:background="@drawable/tile_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:onClick="onChangeTileClick"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:id="@+id/radio_third_tile"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:text="THIRD"
+                android:textColor="@color/colorThirdTile"
+                android:background="@drawable/tile_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:onClick="onChangeTileClick"
+                android:layout_weight="1"/>
+        </RadioGroup>
+
+        <com.pallavbakshi.colorwheel.ColorWheel
+            android:id="@+id/color_wheel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/colorSecondaryBackground"
+            android:layout_margin="@dimen/margin"
+            android:padding="@dimen/padding"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorSecondaryBackground"
+            android:layout_margin="@dimen/margin"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="@dimen/padding"
+                android:textColor="@color/white"
+                android:text="Brightness"/>
+
+
+            <SeekBar
+                android:id="@+id/brightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding"
+                android:max="100"
+                android:min="0"
+                android:progress="100"
+                android:progressBackgroundTint="@color/colorSecondaryWhite"
+                android:progressTint="@color/white"
+                android:textColor="@color/white"
+                android:thumbTint="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
